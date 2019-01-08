@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.shape.*;
@@ -10,7 +8,6 @@ import javafx.scene.Group;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
@@ -20,7 +17,7 @@ import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-public class TurntablePlus
+public class TurntablePlus 
 {
 	private final int MAXN = 50;
 	private final double R = 300D;
@@ -34,7 +31,6 @@ public class TurntablePlus
 		Image img = new Image("/timgg.jpg");
 		BackgroundImage bgimg = new BackgroundImage(img, BackgroundRepeat.REPEAT, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		Background background = new Background(bgimg);
-		Scanner scan = new Scanner(System.in);
 		Random random = new Random();
 		Label logo = new Label("\n\n\nPOWERED\nBY   PTYin");
 		VBox vbox1 = new VBox(0.1);
@@ -48,7 +44,7 @@ public class TurntablePlus
 		Label lseconds = new Label("SEC:");
 		TextField seconds = new TextField();
 		Button start = new Button("Start!");
-		int n = Num.num;
+		int n = num;
 		for(int i = 0; i<n; ++i)
 		{
 			Arc arc = new Arc(0,R,R,R,(double)i*360/(double)n,360/(double)n);
@@ -61,14 +57,14 @@ public class TurntablePlus
 			double angle = ((360D/(double)n)*((double)i+0.5))/180D*Math.PI;
 			double x = Math.cos(angle)*4*R/5;
 			double y = R*(1-Math.sin(angle)*4/5);
-			Text index = new Text(x-10, y+7, Num.names[i]);
+			Text index = new Text(x-10, y+7, names[i]);
 			index.setRotate(90-((360D/(double)n)*((double)i+0.5)));
 			index.setFont(Font.font(20));
 			index.setFill(Color.WHITE);
 			Group partition = new Group(arc, index);
 			partitions.add(partition);
 			table.getChildren().add(partitions.get(i));
-			Label label = new Label(Num.names[i]);
+			Label label = new Label(names[i]);
 			label.setFont(new Font("»ªÎÄçúçê", 20));
 			label.setTextFill(Color.rgb(color[i][0], color[i][1], color[i][2]));
 			vbox1.getChildren().add(label);

@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 public class InputBox
 {
 	public boolean flag = false;//false就前进 true就后退
-	public String name;
     public void display(int i, Stage stage)
     {
     	if(i == 0)
@@ -23,7 +22,7 @@ public class InputBox
     	if(i == Num.num)
     	{
     		stage.close();
-			new TurntablePlus().display(Num.names, Num.num);
+			Classic.display(Num.num, Num.names);
     		return;
     	}
     	HBox hb1 = new HBox();

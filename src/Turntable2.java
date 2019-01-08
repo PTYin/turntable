@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,7 +9,6 @@ import javafx.scene.Group;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
@@ -24,7 +22,7 @@ public class Turntable2 extends Application
 {
 	private final int MAXN = 50;
 	private final double R = 300D;
-	private int averageSpeed;//平均每秒转多少圈
+	private int averageSpeed = 1;//平均每秒转多少圈
 	private int mins = 0, secs = 0;
 	public ArrayList<Group> partitions = new ArrayList<Group>();
 	public int[][] color = new int[MAXN][3];
@@ -34,7 +32,6 @@ public class Turntable2 extends Application
 		Image img = new Image("/timgg.jpg");
 		BackgroundImage bgimg = new BackgroundImage(img, BackgroundRepeat.REPEAT, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		Background background = new Background(bgimg);
-		Scanner scan = new Scanner(System.in);
 		Random random = new Random();
 		Label logo = new Label("POWERED\nBY   PTYin");
 		VBox vbox1 = new VBox(0.1);

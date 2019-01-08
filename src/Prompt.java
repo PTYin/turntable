@@ -10,14 +10,14 @@ import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.RadioButton;
-public class Start extends Application {
+public class Prompt extends Application {
 	private int MAXN = 50;
 	public int num;
 	public String[] names = new String[MAXN];
 	public void start(Stage primaryStage)
 	{
-		RadioButton classic = new RadioButton("缁忓吀");
-		RadioButton specific = new RadioButton("PS鐗瑰埗");
+		RadioButton classic = new RadioButton("经典");
+		RadioButton specific = new RadioButton("特制");
 		VBox pane = new VBox(20);
 		Button submit = new Button("submit!");
 		pane.getChildren().addAll(classic, specific);
@@ -27,18 +27,30 @@ public class Start extends Application {
 		{
 			if(e.getCode() == KeyCode.ENTER)
 			{
-				classic.setSelected(true);
-				new Num().start(new Stage());
-				primaryStage.close();
+				try
+				{
+					new Num().start(new Stage());
+					primaryStage.close();
+				}
+				catch(Exception event)
+				{
+					AlertBox.display("error!", "输入一个整数！");
+				}
 			}
 		});
 		specific.setOnKeyPressed(e ->
 		{
 			if(e.getCode() == KeyCode.ENTER)
 			{
-				specific.setSelected(true);
-				new Turntable2().start(new Stage());
-				primaryStage.close();
+				try
+				{
+					new Turntable2().start(new Stage());
+					primaryStage.close();
+				}
+				catch(Exception event)
+				{
+					AlertBox.display("error!", "输入一个整数！");
+				}
 			}
 		});
 		classic.setOnAction(e -> 
@@ -51,15 +63,22 @@ public class Start extends Application {
 		});
 		submit.setOnAction(e -> 
 		{
-			if(classic.isSelected())
+			try
 			{
-				new Num().start(new Stage());
-				primaryStage.close();
+				if(classic.isSelected())
+				{
+					new Num().start(new Stage());
+					primaryStage.close();
+				}
+				if(specific.isSelected())
+				{
+					new Turntable2().start(new Stage());
+					primaryStage.close();
+				}
 			}
-			if(specific.isSelected())
+			catch(Exception event) 
 			{
-				new Turntable2().start(new Stage());
-				primaryStage.close();
+		        AlertBox.display("error!", "输入一个整数！");
 			}
 		});
 		Scene scene = new Scene(pane, 300, 150);

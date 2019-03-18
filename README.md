@@ -1,2 +1,2 @@
 # turntable
-a application used for picking a person at random by turntable 转盘小程序
+a application used to pick a name randomly
